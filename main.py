@@ -6,7 +6,7 @@ response = requests.get(apiurl)
 data = response.json() 
 someword = random.choice(data)
 
-def loop():
+def loop(): ## alwats contiued guesses and keeps track of guesses
     count = 0
     while True: 
         guess = input("Enter a word: ") 
@@ -19,7 +19,7 @@ def loop():
             print("The word was: " + someword)
             break
     
-def let_check(guess):
+def let_check(guess): ## checks letters and fills in correct letters 
     global result  
     result = ""
     for x in someword:
@@ -29,11 +29,11 @@ def let_check(guess):
         if wordLet == newword:
                 result += newword
     if len(guess) > len(someword):
-        print("Too Many Words Try Again")
+        print("Too Many Letters Try Again")
     elif len(guess) < len(someword):
-        print("Too Little Words Try Again")
+        print("Too Little Letters Try Again")
     
-def correct(guess):
+def correct(guess): ## correct guess logic
     if guess == someword:
         print("Ding, Ding, Ding!!")
             
@@ -57,6 +57,7 @@ loop()
                   
              
           
+
 
 
 
